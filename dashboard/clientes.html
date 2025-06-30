@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gerenciamento de clientes da Efata Prime Elevadores">
+    <title>Clientes - EFATA PRIME Elevadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+            </a>
+            <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h3 class="user-name">Carregando...</h3>
+                <p class="user-role">Carregando...</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vistorias.html">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Vistorias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordens-servico.html">
+                        <i class="fas fa-tools"></i>
+                        <span>Ordens de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fotos.html">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html" class="active">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-left">
+                <h1>Clientes</h1>
+                <nav class="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Clientes</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar clientes...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notificações</h3>
+                            <a href="#">Marcar todas como lidas</a>
+                        </div>
+                        <ul class="notification-list">
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Nova vistoria agendada para hoje</p>
+                                        <span class="notification-time">Há 30 minutos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Ordem de serviço #123 atualizada</p>
+                                        <span class="notification-time">Há 2 horas</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Novo cliente cadastrado</p>
+                                        <span class="notification-time">Há 1 dia</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="user-name-display">Carregando...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Clientes Header -->
+            <div class="content-header-actions">
+                <h2>Gerenciamento de Clientes</h2>
+                <button class="btn btn-primary" id="newClientBtn">
+                    <i class="fas fa-plus"></i> Novo Cliente
+                </button>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="cityFilter">Cidade:</label>
+                    <select id="cityFilter" class="form-control">
+                        <option value="">Todas</option>
+                        <option value="São Paulo">São Paulo</option>
+                        <option value="Guarulhos">Guarulhos</option>
+                        <option value="Campinas">Campinas</option>
+                        <option value="Santos">Santos</option>
+                        <option value="Osasco">Osasco</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="stateFilter">Estado:</label>
+                    <select id="stateFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="SP">SP</option>
+                        <option value="RJ">RJ</option>
+                        <option value="MG">MG</option>
+                        <option value="PR">PR</option>
+                        <option value="SC">SC</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="statusFilter">Status:</label>
+                    <select id="statusFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="active">Ativo</option>
+                        <option value="inactive">Inativo</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="btn btn-secondary" id="applyFiltersBtn">
+                        <i class="fas fa-filter"></i> Aplicar Filtros
+                    </button>
+                    <button class="btn btn-outline" id="clearFiltersBtn">
+                        <i class="fas fa-times"></i> Limpar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Visualização em Cartões -->
+            <div class="view-toggle">
+                <button class="btn-view" data-view="cards"><i class="fas fa-th-large"></i> Cartões</button>
+                <button class="btn-view active" data-view="table"><i class="fas fa-list"></i> Tabela</button>
+            </div>
+
+            <!-- Tabela de Clientes -->
+            <div class="table-responsive client-table-view">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CNPJ</th>
+                            <th>Contato</th>
+                            <th>Telefone</th>
+                            <th>Email</th>
+                            <th>Cidade/UF</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#101</td>
+                            <td>Condomínio Jardim das Flores</td>
+                            <td>12.345.678/0001-90</td>
+                            <td>Maria Silva</td>
+                            <td>(11) 98765-4321</td>
+                            <td>contato@jardimdasflores.com.br</td>
+                            <td>São Paulo/SP</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#102</td>
+                            <td>Edifício Aurora</td>
+                            <td>23.456.789/0001-01</td>
+                            <td>João Pereira</td>
+                            <td>(11) 97654-3210</td>
+                            <td>administracao@edificioaurora.com.br</td>
+                            <td>São Paulo/SP</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#103</td>
+                            <td>Condomínio Primavera</td>
+                            <td>34.567.890/0001-12</td>
+                            <td>Ana Oliveira</td>
+                            <td>(11) 96543-2109</td>
+                            <td>contato@condominioprimavera.com.br</td>
+                            <td>Guarulhos/SP</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#104</td>
+                            <td>Edifício Horizonte</td>
+                            <td>45.678.901/0001-23</td>
+                            <td>Carlos Santos</td>
+                            <td>(11) 95432-1098</td>
+                            <td>adm@edificiohorizonte.com.br</td>
+                            <td>Campinas/SP</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#105</td>
+                            <td>Hospital Santa Clara</td>
+                            <td>56.789.012/0001-34</td>
+                            <td>Roberto Almeida</td>
+                            <td>(11) 94321-0987</td>
+                            <td>manutencao@hospitalsantaclara.com.br</td>
+                            <td>São Paulo/SP</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#106</td>
+                            <td>Shopping Center Plaza</td>
+                            <td>67.890.123/0001-45</td>
+                            <td>Fernanda Lima</td>
+                            <td>(11) 93210-9876</td>
+                            <td>manutencao@shoppingplaza.com.br</td>
+                            <td>Santos/SP</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#107</td>
+                            <td>Condomínio Empresarial Tower</td>
+                            <td>78.901.234/0001-56</td>
+                            <td>Marcos Souza</td>
+                            <td>(11) 92109-8765</td>
+                            <td>adm@empresarialtower.com.br</td>
+                            <td>São Paulo/SP</td>
+                            <td><span class="status-badge inactive">Inativo</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Histórico">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Visualização em Cartões (inicialmente oculta) -->
+            <div class="client-cards-view" style="display: none;">
+                <div class="client-cards">
+                    <div class="client-card">
+                        <div class="client-card-header">
+                            <h3>Condomínio Jardim das Flores</h3>
+                            <span class="status-badge active">Ativo</span>
+                        </div>
+                        <div class="client-card-body">
+                            <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 12.345.678/0001-90</p>
+                            <p><i class="fas fa-user"></i> <strong>Contato:</strong> Maria Silva</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 98765-4321</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contato@jardimdasflores.com.br</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> São Paulo/SP</p>
+                        </div>
+                        <div class="client-card-footer">
+                            <button class="btn-icon" title="Ver Detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Histórico">
+                                <i class="fas fa-history"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-card-header">
+                            <h3>Edifício Aurora</h3>
+                            <span class="status-badge active">Ativo</span>
+                        </div>
+                        <div class="client-card-body">
+                            <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 23.456.789/0001-01</p>
+                            <p><i class="fas fa-user"></i> <strong>Contato:</strong> João Pereira</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 97654-3210</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> administracao@edificioaurora.com.br</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> São Paulo/SP</p>
+                        </div>
+                        <div class="client-card-footer">
+                            <button class="btn-icon" title="Ver Detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Histórico">
+                                <i class="fas fa-history"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-card-header">
+                            <h3>Condomínio Primavera</h3>
+                            <span class="status-badge active">Ativo</span>
+                        </div>
+                        <div class="client-card-body">
+                            <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 34.567.890/0001-12</p>
+                            <p><i class="fas fa-user"></i> <strong>Contato:</strong> Ana Oliveira</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 96543-2109</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contato@condominioprimavera.com.br</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> Guarulhos/SP</p>
+                        </div>
+                        <div class="client-card-footer">
+                            <button class="btn-icon" title="Ver Detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Histórico">
+                                <i class="fas fa-history"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-card-header">
+                            <h3>Edifício Horizonte</h3>
+                            <span class="status-badge active">Ativo</span>
+                        </div>
+                        <div class="client-card-body">
+                            <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 45.678.901/0001-23</p>
+                            <p><i class="fas fa-user"></i> <strong>Contato:</strong> Carlos Santos</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 95432-1098</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> adm@edificiohorizonte.com.br</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> Campinas/SP</p>
+                        </div>
+                        <div class="client-card-footer">
+                            <button class="btn-icon" title="Ver Detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Histórico">
+                                <i class="fas fa-history"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-card-header">
+                            <h3>Hospital Santa Clara</h3>
+                            <span class="status-badge active">Ativo</span>
+                        </div>
+                        <div class="client-card-body">
+                            <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 56.789.012/0001-34</p>
+                            <p><i class="fas fa-user"></i> <strong>Contato:</strong> Roberto Almeida</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 94321-0987</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> manutencao@hospitalsantaclara.com.br</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> São Paulo/SP</p>
+                        </div>
+                        <div class="client-card-footer">
+                            <button class="btn-icon" title="Ver Detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Histórico">
+                                <i class="fas fa-history"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-card-header">
+                            <h3>Shopping Center Plaza</h3>
+                            <span class="status-badge active">Ativo</span>
+                        </div>
+                        <div class="client-card-body">
+                            <p><i class="fas fa-id-card"></i> <strong>CNPJ:</strong> 67.890.123/0001-45</p>
+                            <p><i class="fas fa-user"></i> <strong>Contato:</strong> Fernanda Lima</p>
+                            <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (11) 93210-9876</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> manutencao@shoppingplaza.com.br</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Localização:</strong> Santos/SP</p>
+                        </div>
+                        <div class="client-card-footer">
+                            <button class="btn-icon" title="Ver Detalhes">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-icon" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon" title="Histórico">
+                                <i class="fas fa-history"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paginação -->
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-ellipsis">...</span>
+                <button class="pagination-btn">10</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <footer class="content-footer">
+            <p>&copy; 2025 Efata Prime Elevadores. Todos os direitos reservados.</p>
+            <p>Versão 2.0</p>
+        </footer>
+    </main>
+
+    <!-- Modal Novo Cliente -->
+    <div class="modal" id="newClientModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Novo Cliente</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="newClientForm">
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="clientName">Nome/Razão Social:</label>
+                            <input type="text" id="clientName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="clientCNPJ">CNPJ:</label>
+                            <input type="text" id="clientCNPJ" class="form-control" placeholder="00.000.000/0000-00" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="clientStatus">Status:</label>
+                            <select id="clientStatus" class="form-control" required>
+                                <option value="active" selected>Ativo</option>
+                                <option value="inactive">Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="contactName">Nome do Contato:</label>
+                            <input type="text" id="contactName" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="contactPhone">Telefone:</label>
+                            <input type="text" id="contactPhone" class="form-control" placeholder="(00) 00000-0000" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="contactEmail">Email:</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="clientAddress">Endereço:</label>
+                            <input type="text" id="clientAddress" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-4">
+                            <label for="clientCity">Cidade:</label>
+                            <input type="text" id="clientCity" class="form-control" required>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="clientState">Estado:</label>
+                            <select id="clientState" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-4">
+                            <label for="clientZipCode">CEP:</label>
+                            <input type="text" id="clientZipCode" class="form-control" placeholder="00000-000" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="clientNotes">Observações:</label>
+                            <textarea id="clientNotes" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelClientBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveClientBtn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Detalhes do Cliente -->
+    <div class="modal" id="clientDetailsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="detailsClientName">Nome do Cliente</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tabs">
+                    <div class="tab-header">
+                        <div class="tab-item active" data-tab="info">Informações</div>
+                        <div class="tab-item" data-tab="buildings">Edifícios</div>
+                        <div class="tab-item" data-tab="elevators">Elevadores</div>
+                        <div class="tab-item" data-tab="inspections">Vistorias</div>
+                        <div class="tab-item" data-tab="work-orders">Ordens de Serviço</div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="info">
+                            <div class="client-details">
+                                <div class="client-info-section">
+                                    <h3>Informações Gerais</h3>
+                                    <div class="info-grid">
+                                        <div class="info-item">
+                                            <span class="info-label">CNPJ:</span>
+                                            <span class="info-value" id="detailsCNPJ">12.345.678/0001-90</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Status:</span>
+                                            <span class="info-value"><span class="status-badge active" id="detailsStatus">Ativo</span></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Data de Cadastro:</span>
+                                            <span class="info-value" id="detailsRegistrationDate">01/01/2023</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Última Atualização:</span>
+                                            <span class="info-value" id="detailsLastUpdate">15/05/2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="client-info-section">
+                                    <h3>Contato</h3>
+                                    <div class="info-grid">
+                                        <div class="info-item">
+                                            <span class="info-label">Nome:</span>
+                                            <span class="info-value" id="detailsContactName">Maria Silva</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Telefone:</span>
+                                            <span class="info-value" id="detailsContactPhone">(11) 98765-4321</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Email:</span>
+                                            <span class="info-value" id="detailsContactEmail">contato@jardimdasflores.com.br</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="client-info-section">
+                                    <h3>Endereço</h3>
+                                    <div class="info-grid">
+                                        <div class="info-item full-width">
+                                            <span class="info-label">Logradouro:</span>
+                                            <span class="info-value" id="detailsAddress">Av. das Flores, 123</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Cidade:</span>
+                                            <span class="info-value" id="detailsCity">São Paulo</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Estado:</span>
+                                            <span class="info-value" id="detailsState">SP</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">CEP:</span>
+                                            <span class="info-value" id="detailsZipCode">01234-567</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="client-info-section">
+                                    <h3>Observações</h3>
+                                    <p id="detailsNotes">Cliente desde 2023. Possui contrato de manutenção preventiva mensal para todos os elevadores.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="buildings">
+                            <div class="action-bar">
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-plus"></i> Novo Edifício
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Endereço</th>
+                                            <th>Cidade/UF</th>
+                                            <th>Qtd. Elevadores</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#B101</td>
+                                            <td>Bloco A</td>
+                                            <td>Av. das Flores, 123</td>
+                                            <td>São Paulo/SP</td>
+                                            <td>2</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#B102</td>
+                                            <td>Bloco B</td>
+                                            <td>Av. das Flores, 123</td>
+                                            <td>São Paulo/SP</td>
+                                            <td>2</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="elevators">
+                            <div class="action-bar">
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-plus"></i> Novo Elevador
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Edifício</th>
+                                            <th>Modelo</th>
+                                            <th>Fabricante</th>
+                                            <th>Capacidade</th>
+                                            <th>Instalação</th>
+                                            <th>Última Manutenção</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#E101</td>
+                                            <td>Bloco A</td>
+                                            <td>Social 1</td>
+                                            <td>Atlas</td>
+                                            <td>8 pessoas</td>
+                                            <td>10/01/2020</td>
+                                            <td>18/05/2025</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Histórico">
+                                                    <i class="fas fa-history"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#E102</td>
+                                            <td>Bloco A</td>
+                                            <td>Serviço</td>
+                                            <td>Atlas</td>
+                                            <td>10 pessoas</td>
+                                            <td>10/01/2020</td>
+                                            <td>18/05/2025</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Histórico">
+                                                    <i class="fas fa-history"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#E103</td>
+                                            <td>Bloco B</td>
+                                            <td>Social 1</td>
+                                            <td>Atlas</td>
+                                            <td>8 pessoas</td>
+                                            <td>15/01/2020</td>
+                                            <td>21/05/2025</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Histórico">
+                                                    <i class="fas fa-history"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="inspections">
+                            <div class="action-bar">
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-plus"></i> Nova Vistoria
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Elevador</th>
+                                            <th>Data</th>
+                                            <th>Técnico</th>
+                                            <th>Status</th>
+                                            <th>Próxima Vistoria</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#1001</td>
+                                            <td>Bloco A - Social 1</td>
+                                            <td>18/05/2025</td>
+                                            <td>Carlos Silva</td>
+                                            <td><span class="status-badge completed">Concluída</span></td>
+                                            <td>18/06/2025</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Gerar Relatório">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#1006</td>
+                                            <td>Bloco B - Social 1</td>
+                                            <td>21/05/2025</td>
+                                            <td>Carlos Silva</td>
+                                            <td><span class="status-badge pending">Pendente</span></td>
+                                            <td>-</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="work-orders">
+                            <div class="action-bar">
+                                <button class="btn btn-sm btn-primary">
+                                    <i class="fas fa-plus"></i> Nova Ordem de Serviço
+                                </button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>OS #</th>
+                                            <th>Elevador</th>
+                                            <th>Descrição</th>
+                                            <th>Data Agendada</th>
+                                            <th>Técnico</th>
+                                            <th>Prioridade</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#2001</td>
+                                            <td>Bloco A - Social 1</td>
+                                            <td>Manutenção preventiva</td>
+                                            <td>18/05/2025</td>
+                                            <td>Carlos Silva</td>
+                                            <td><span class="priority-badge medium">Média</span></td>
+                                            <td><span class="status-badge completed">Concluída</span></td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Gerar Relatório">
+                                                    <i class="fas fa-file-pdf"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#2006</td>
+                                            <td>Bloco B - Social 1</td>
+                                            <td>Manutenção preventiva</td>
+                                            <td>21/05/2025</td>
+                                            <td>Carlos Silva</td>
+                                            <td><span class="priority-badge low">Baixa</span></td>
+                                            <td><span class="status-badge open">Aberta</span></td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Ver Detalhes">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeDetailsBtn">Fechar</button>
+                <button class="btn btn-primary" id="editClientBtn">Editar Cliente</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/clientes.js"></script>
+</body>
+</html>

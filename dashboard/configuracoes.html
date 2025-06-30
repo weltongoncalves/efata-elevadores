@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Configurações do sistema da Efata Prime Elevadores">
+    <title>Configurações - EFATA PRIME Elevadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+            </a>
+            <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h3 class="user-name">Carregando...</h3>
+                <p class="user-role">Carregando...</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vistorias.html">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Vistorias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordens-servico.html">
+                        <i class="fas fa-tools"></i>
+                        <span>Ordens de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fotos.html">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html" class="active">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-left">
+                <h1>Configurações</h1>
+                <nav class="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Configurações</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notificações</h3>
+                            <a href="#">Marcar todas como lidas</a>
+                        </div>
+                        <ul class="notification-list">
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Nova vistoria agendada para hoje</p>
+                                        <span class="notification-time">Há 30 minutos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Ordem de serviço #123 atualizada</p>
+                                        <span class="notification-time">Há 2 horas</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Novo cliente cadastrado</p>
+                                        <span class="notification-time">Há 1 dia</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="user-name-display">Carregando...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Configurações Tabs -->
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <ul class="settings-nav">
+                        <li class="settings-nav-item active" data-tab="perfil">
+                            <i class="fas fa-user"></i>
+                            <span>Perfil</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="conta">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Conta</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="notificacoes">
+                            <i class="fas fa-bell"></i>
+                            <span>Notificações</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="aparencia">
+                            <i class="fas fa-palette"></i>
+                            <span>Aparência</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="empresa">
+                            <i class="fas fa-building"></i>
+                            <span>Empresa</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="usuarios">
+                            <i class="fas fa-users-cog"></i>
+                            <span>Usuários</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="sistema">
+                            <i class="fas fa-cogs"></i>
+                            <span>Sistema</span>
+                        </li>
+                        <li class="settings-nav-item" data-tab="backup">
+                            <i class="fas fa-database"></i>
+                            <span>Backup</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="settings-content">
+                    <!-- Perfil -->
+                    <div class="settings-tab active" id="perfil-tab">
+                        <div class="settings-header">
+                            <h2>Configurações de Perfil</h2>
+                            <p>Gerencie suas informações pessoais e preferências</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <div class="profile-header">
+                                <div class="profile-avatar">
+                                    <img src="../assets/images/avatar-placeholder.jpg" alt="Foto de perfil">
+                                    <button class="btn-change-avatar">
+                                        <i class="fas fa-camera"></i>
+                                    </button>
+                                </div>
+                                <div class="profile-info">
+                                    <h3>Carlos Silva</h3>
+                                    <p>Técnico de Manutenção</p>
+                                    <p><i class="fas fa-envelope"></i> carlos.silva@efataprime.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <form class="settings-form">
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="profileName">Nome Completo:</label>
+                                        <input type="text" id="profileName" class="form-control" value="Carlos Silva">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="profileEmail">Email:</label>
+                                        <input type="email" id="profileEmail" class="form-control" value="carlos.silva@efataprime.com.br">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="profilePhone">Telefone:</label>
+                                        <input type="text" id="profilePhone" class="form-control" value="(11) 98765-4321">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="profilePosition">Cargo:</label>
+                                        <input type="text" id="profilePosition" class="form-control" value="Técnico de Manutenção">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="profileBio">Biografia:</label>
+                                        <textarea id="profileBio" class="form-control" rows="3">Técnico de manutenção com mais de 5 anos de experiência em elevadores residenciais e comerciais.</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-secondary">Cancelar</button>
+                                    <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Conta -->
+                    <div class="settings-tab" id="conta-tab">
+                        <div class="settings-header">
+                            <h2>Configurações de Conta</h2>
+                            <p>Gerencie sua senha e segurança da conta</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Alterar Senha</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="currentPassword">Senha Atual:</label>
+                                    <input type="password" id="currentPassword" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">Nova Senha:</label>
+                                    <input type="password" id="newPassword" class="form-control">
+                                    <div class="password-strength">
+                                        <div class="strength-meter">
+                                            <div class="strength-segment"></div>
+                                            <div class="strength-segment"></div>
+                                            <div class="strength-segment"></div>
+                                            <div class="strength-segment"></div>
+                                        </div>
+                                        <span class="strength-text">Força da senha: Fraca</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirmar Nova Senha:</label>
+                                    <input type="password" id="confirmPassword" class="form-control">
+                                </div>
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary">Alterar Senha</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Autenticação de Dois Fatores</h3>
+                            <div class="two-factor-status">
+                                <div class="status-indicator disabled">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Desativado</span>
+                                </div>
+                                <p>A autenticação de dois fatores adiciona uma camada extra de segurança à sua conta.</p>
+                                <button class="btn btn-outline">Ativar Autenticação de Dois Fatores</button>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Sessões Ativas</h3>
+                            <div class="active-sessions">
+                                <div class="session-item current">
+                                    <div class="session-info">
+                                        <i class="fas fa-laptop"></i>
+                                        <div class="session-details">
+                                            <h4>Windows 10 - Chrome</h4>
+                                            <p>São Paulo, Brasil • Ativo agora</p>
+                                            <span class="session-current">Sessão Atual</span>
+                                        </div>
+                                    </div>
+                                    <button class="btn-icon" disabled>
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>
+                                </div>
+                                <div class="session-item">
+                                    <div class="session-info">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <div class="session-details">
+                                            <h4>iPhone - Safari</h4>
+                                            <p>São Paulo, Brasil • Último acesso: 19/05/2025</p>
+                                        </div>
+                                    </div>
+                                    <button class="btn-icon">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger-outline mt-3">Encerrar Todas as Outras Sessões</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Notificações -->
+                    <div class="settings-tab" id="notificacoes-tab">
+                        <div class="settings-header">
+                            <h2>Configurações de Notificações</h2>
+                            <p>Gerencie como e quando você recebe notificações</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Notificações do Sistema</h3>
+                            <div class="notification-settings">
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Novas Vistorias</h4>
+                                        <p>Receba notificações quando novas vistorias forem agendadas</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Ordens de Serviço</h4>
+                                        <p>Receba notificações sobre atualizações em ordens de serviço</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Novos Clientes</h4>
+                                        <p>Receba notificações quando novos clientes forem cadastrados</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Relatórios</h4>
+                                        <p>Receba notificações sobre novos relatórios disponíveis</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Notificações por Email</h3>
+                            <div class="notification-settings">
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Resumo Diário</h4>
+                                        <p>Receba um resumo diário das atividades</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Vistorias Agendadas</h4>
+                                        <p>Receba emails sobre novas vistorias agendadas</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Ordens de Serviço Urgentes</h4>
+                                        <p>Receba emails sobre ordens de serviço com prioridade alta</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="notification-option">
+                                    <div class="notification-info">
+                                        <h4>Newsletters</h4>
+                                        <p>Receba emails com novidades e atualizações do sistema</p>
+                                    </div>
+                                    <div class="notification-controls">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Aparência -->
+                    <div class="settings-tab" id="aparencia-tab">
+                        <div class="settings-header">
+                            <h2>Configurações de Aparência</h2>
+                            <p>Personalize a aparência do sistema</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Tema</h3>
+                            <div class="theme-options">
+                                <div class="theme-option active">
+                                    <div class="theme-preview light-theme">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-sidebar"></div>
+                                        <div class="preview-content"></div>
+                                    </div>
+                                    <div class="theme-info">
+                                        <h4>Claro</h4>
+                                        <p>Tema padrão com fundo claro</p>
+                                    </div>
+                                    <div class="theme-select">
+                                        <label class="radio-container">
+                                            <input type="radio" name="theme" value="light" checked>
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="theme-option">
+                                    <div class="theme-preview dark-theme">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-sidebar"></div>
+                                        <div class="preview-content"></div>
+                                    </div>
+                                    <div class="theme-info">
+                                        <h4>Escuro</h4>
+                                        <p>Tema com fundo escuro</p>
+                                    </div>
+                                    <div class="theme-select">
+                                        <label class="radio-container">
+                                            <input type="radio" name="theme" value="dark">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="theme-option">
+                                    <div class="theme-preview system-theme">
+                                        <div class="preview-header"></div>
+                                        <div class="preview-sidebar"></div>
+                                        <div class="preview-content"></div>
+                                    </div>
+                                    <div class="theme-info">
+                                        <h4>Sistema</h4>
+                                        <p>Segue as configurações do seu sistema</p>
+                                    </div>
+                                    <div class="theme-select">
+                                        <label class="radio-container">
+                                            <input type="radio" name="theme" value="system">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Densidade</h3>
+                            <div class="density-options">
+                                <div class="density-option">
+                                    <div class="density-preview compact">
+                                        <div class="density-line"></div>
+                                        <div class="density-line"></div>
+                                        <div class="density-line"></div>
+                                    </div>
+                                    <div class="density-info">
+                                        <h4>Compacta</h4>
+                                        <p>Mais conteúdo na tela</p>
+                                    </div>
+                                    <div class="density-select">
+                                        <label class="radio-container">
+                                            <input type="radio" name="density" value="compact">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="density-option active">
+                                    <div class="density-preview normal">
+                                        <div class="density-line"></div>
+                                        <div class="density-line"></div>
+                                        <div class="density-line"></div>
+                                    </div>
+                                    <div class="density-info">
+                                        <h4>Normal</h4>
+                                        <p>Espaçamento padrão</p>
+                                    </div>
+                                    <div class="density-select">
+                                        <label class="radio-container">
+                                            <input type="radio" name="density" value="normal" checked>
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="density-option">
+                                    <div class="density-preview comfortable">
+                                        <div class="density-line"></div>
+                                        <div class="density-line"></div>
+                                        <div class="density-line"></div>
+                                    </div>
+                                    <div class="density-info">
+                                        <h4>Confortável</h4>
+                                        <p>Mais espaço entre elementos</p>
+                                    </div>
+                                    <div class="density-select">
+                                        <label class="radio-container">
+                                            <input type="radio" name="density" value="comfortable">
+                                            <span class="radio-checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Tamanho da Fonte</h3>
+                            <div class="font-size-slider">
+                                <span class="font-size-label small">A</span>
+                                <input type="range" min="1" max="5" value="3" class="slider" id="fontSizeSlider">
+                                <span class="font-size-label large">A</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Restaurar Padrões</button>
+                            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Empresa -->
+                    <div class="settings-tab" id="empresa-tab">
+                        <div class="settings-header">
+                            <h2>Configurações da Empresa</h2>
+                            <p>Gerencie as informações da sua empresa</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Informações Gerais</h3>
+                            <form class="settings-form">
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="companyName">Nome da Empresa:</label>
+                                        <input type="text" id="companyName" class="form-control" value="Efata Prime Elevadores">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="companyCNPJ">CNPJ:</label>
+                                        <input type="text" id="companyCNPJ" class="form-control" value="60.056.606/0001-70">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="companyIE">Inscrição Estadual:</label>
+                                        <input type="text" id="companyIE" class="form-control" value="123.456.789.000">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="companyAddress">Endereço:</label>
+                                        <input type="text" id="companyAddress" class="form-control" value="Av. Paulista, 1000, São Paulo - SP">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="companyPhone">Telefone:</label>
+                                        <input type="text" id="companyPhone" class="form-control" value="(11) 3456-7890">
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="companyEmail">Email:</label>
+                                        <input type="email" id="companyEmail" class="form-control" value="contato@efataprime.com.br">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12">
+                                        <label for="companyWebsite">Website:</label>
+                                        <input type="url" id="companyWebsite" class="form-control" value="https://www.efataprime.com.br">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Logotipo</h3>
+                            <div class="logo-settings">
+                                <div class="current-logo">
+                                    <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+                                </div>
+                                <div class="logo-actions">
+                                    <button class="btn btn-outline">Alterar Logotipo</button>
+                                    <p class="logo-hint">Formatos aceitos: PNG, JPG, SVG. Tamanho máximo: 2MB.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Redes Sociais</h3>
+                            <form class="settings-form">
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="socialFacebook">Facebook:</label>
+                                        <div class="input-with-icon">
+                                            <i class="fab fa-facebook"></i>
+                                            <input type="url" id="socialFacebook" class="form-control" value="https://facebook.com/efataprime">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="socialInstagram">Instagram:</label>
+                                        <div class="input-with-icon">
+                                            <i class="fab fa-instagram"></i>
+                                            <input type="url" id="socialInstagram" class="form-control" value="https://instagram.com/efataprime">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="socialLinkedin">LinkedIn:</label>
+                                        <div class="input-with-icon">
+                                            <i class="fab fa-linkedin"></i>
+                                            <input type="url" id="socialLinkedin" class="form-control" value="https://linkedin.com/company/efataprime">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="socialYoutube">YouTube:</label>
+                                        <div class="input-with-icon">
+                                            <i class="fab fa-youtube"></i>
+                                            <input type="url" id="socialYoutube" class="form-control" value="https://youtube.com/efataprime">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Usuários -->
+                    <div class="settings-tab" id="usuarios-tab">
+                        <div class="settings-header">
+                            <h2>Gerenciamento de Usuários</h2>
+                            <p>Gerencie os usuários do sistema</p>
+                            <button class="btn btn-primary" id="addUserBtn">
+                                <i class="fas fa-user-plus"></i> Adicionar Usuário
+                            </button>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Cargo</th>
+                                            <th>Perfil</th>
+                                            <th>Status</th>
+                                            <th>Último Acesso</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Welton">
+                                                    </div>
+                                                    <span>Welton</span>
+                                                </div>
+                                            </td>
+                                            <td>welton@efataprime.com.br</td>
+                                            <td>Diretor</td>
+                                            <td><span class="badge admin">Administrador</span></td>
+                                            <td><span class="status-badge active">Ativo</span></td>
+                                            <td>20/05/2025 09:45</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Desativar">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Erivan">
+                                                    </div>
+                                                    <span>Erivan</span>
+                                                </div>
+                                            </td>
+                                            <td>erivan@efataprime.com.br</td>
+                                            <td>Gerente de Gestão</td>
+                                            <td><span class="badge admin">Administrador</span></td>
+                                            <td><span class="status-badge active">Ativo</span></td>
+                                            <td>20/05/2025 08:30</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Desativar">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Atanael">
+                                                    </div>
+                                                    <span>Atanael</span>
+                                                </div>
+                                            </td>
+                                            <td>atanael@efataprime.com.br</td>
+                                            <td>E-commerce</td>
+                                            <td><span class="badge admin">Administrador</span></td>
+                                            <td><span class="status-badge active">Ativo</span></td>
+                                            <td>19/05/2025 17:15</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Desativar">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Rodrigo">
+                                                    </div>
+                                                    <span>Rodrigo</span>
+                                                </div>
+                                            </td>
+                                            <td>rodrigo@efataprime.com.br</td>
+                                            <td>TI</td>
+                                            <td><span class="badge admin">Administrador</span></td>
+                                            <td><span class="status-badge active">Ativo</span></td>
+                                            <td>20/05/2025 10:00</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Desativar">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Carlos Silva">
+                                                    </div>
+                                                    <span>Carlos Silva</span>
+                                                </div>
+                                            </td>
+                                            <td>carlos.silva@efataprime.com.br</td>
+                                            <td>Técnico</td>
+                                            <td><span class="badge technician">Técnico</span></td>
+                                            <td><span class="status-badge active">Ativo</span></td>
+                                            <td>20/05/2025 09:30</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Desativar">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Ana Oliveira">
+                                                    </div>
+                                                    <span>Ana Oliveira</span>
+                                                </div>
+                                            </td>
+                                            <td>ana.oliveira@efataprime.com.br</td>
+                                            <td>Técnica</td>
+                                            <td><span class="badge technician">Técnico</span></td>
+                                            <td><span class="status-badge active">Ativo</span></td>
+                                            <td>19/05/2025 16:45</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Desativar">
+                                                    <i class="fas fa-ban"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="user-info-cell">
+                                                    <div class="user-avatar-small">
+                                                        <img src="../assets/images/avatar-placeholder.jpg" alt="Maria Santos">
+                                                    </div>
+                                                    <span>Maria Santos</span>
+                                                </div>
+                                            </td>
+                                            <td>maria.santos@efataprime.com.br</td>
+                                            <td>Atendimento</td>
+                                            <td><span class="badge support">Atendimento</span></td>
+                                            <td><span class="status-badge inactive">Inativo</span></td>
+                                            <td>15/05/2025 14:20</td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Editar">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Permissões">
+                                                    <i class="fas fa-key"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Ativar">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sistema -->
+                    <div class="settings-tab" id="sistema-tab">
+                        <div class="settings-header">
+                            <h2>Configurações do Sistema</h2>
+                            <p>Gerencie as configurações gerais do sistema</p>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Configurações Gerais</h3>
+                            <form class="settings-form">
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="systemLanguage">Idioma:</label>
+                                        <select id="systemLanguage" class="form-control">
+                                            <option value="pt-BR" selected>Português (Brasil)</option>
+                                            <option value="en-US">English (United States)</option>
+                                            <option value="es-ES">Español</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="systemTimezone">Fuso Horário:</label>
+                                        <select id="systemTimezone" class="form-control">
+                                            <option value="America/Sao_Paulo" selected>Brasília (GMT-3)</option>
+                                            <option value="America/New_York">New York (GMT-4)</option>
+                                            <option value="Europe/London">London (GMT+1)</option>
+                                            <option value="Asia/Tokyo">Tokyo (GMT+9)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="systemDateFormat">Formato de Data:</label>
+                                        <select id="systemDateFormat" class="form-control">
+                                            <option value="dd/mm/yyyy" selected>DD/MM/AAAA</option>
+                                            <option value="mm/dd/yyyy">MM/DD/AAAA</option>
+                                            <option value="yyyy-mm-dd">AAAA-MM-DD</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="systemTimeFormat">Formato de Hora:</label>
+                                        <select id="systemTimeFormat" class="form-control">
+                                            <option value="24h" selected>24 horas</option>
+                                            <option value="12h">12 horas (AM/PM)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="systemCurrency">Moeda:</label>
+                                        <select id="systemCurrency" class="form-control">
+                                            <option value="BRL" selected>Real (R$)</option>
+                                            <option value="USD">Dólar (US$)</option>
+                                            <option value="EUR">Euro (€)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="systemMeasurement">Sistema de Medidas:</label>
+                                        <select id="systemMeasurement" class="form-control">
+                                            <option value="metric" selected>Métrico (kg, m)</option>
+                                            <option value="imperial">Imperial (lb, ft)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Segurança</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label for="sessionTimeout">Tempo de Inatividade (minutos):</label>
+                                    <input type="number" id="sessionTimeout" class="form-control" value="30" min="5" max="120">
+                                    <small class="form-text">Tempo de inatividade antes de encerrar a sessão automaticamente.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="forcePasswordChange" checked>
+                                        <span class="checkbox-label">Forçar alteração de senha a cada 90 dias</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="twoFactorRequired">
+                                        <span class="checkbox-label">Exigir autenticação de dois fatores para todos os usuários</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="logFailedAttempts" checked>
+                                        <span class="checkbox-label">Registrar tentativas de login malsucedidas</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Manutenção</h3>
+                            <div class="maintenance-actions">
+                                <div class="maintenance-action">
+                                    <div class="maintenance-info">
+                                        <h4>Limpar Cache</h4>
+                                        <p>Limpa o cache do sistema para liberar espaço e melhorar o desempenho</p>
+                                    </div>
+                                    <button class="btn btn-outline">Limpar Cache</button>
+                                </div>
+                                <div class="maintenance-action">
+                                    <div class="maintenance-info">
+                                        <h4>Otimizar Banco de Dados</h4>
+                                        <p>Otimiza as tabelas do banco de dados para melhorar o desempenho</p>
+                                    </div>
+                                    <button class="btn btn-outline">Otimizar</button>
+                                </div>
+                                <div class="maintenance-action">
+                                    <div class="maintenance-info">
+                                        <h4>Verificar Atualizações</h4>
+                                        <p>Verifica se há atualizações disponíveis para o sistema</p>
+                                    </div>
+                                    <button class="btn btn-outline">Verificar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Restaurar Padrões</button>
+                            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Backup -->
+                    <div class="settings-tab" id="backup-tab">
+                        <div class="settings-header">
+                            <h2>Backup e Restauração</h2>
+                            <p>Gerencie backups do sistema e dados</p>
+                            <button class="btn btn-primary" id="createBackupBtn">
+                                <i class="fas fa-download"></i> Criar Backup
+                            </button>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Backups Automáticos</h3>
+                            <form class="settings-form">
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="enableAutoBackup" checked>
+                                        <span class="checkbox-label">Ativar backups automáticos</span>
+                                    </label>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-6">
+                                        <label for="backupFrequency">Frequência:</label>
+                                        <select id="backupFrequency" class="form-control">
+                                            <option value="daily">Diário</option>
+                                            <option value="weekly" selected>Semanal</option>
+                                            <option value="monthly">Mensal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="backupTime">Horário:</label>
+                                        <input type="time" id="backupTime" class="form-control" value="02:00">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="backupRetention">Retenção (dias):</label>
+                                    <input type="number" id="backupRetention" class="form-control" value="30" min="1" max="365">
+                                    <small class="form-text">Número de dias para manter os backups antes de excluí-los automaticamente.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="backupLocation">Local de Armazenamento:</label>
+                                    <select id="backupLocation" class="form-control">
+                                        <option value="local" selected>Servidor Local</option>
+                                        <option value="cloud">Nuvem (AWS S3)</option>
+                                        <option value="both">Ambos (Local e Nuvem)</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Backups Disponíveis</h3>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Data</th>
+                                            <th>Tamanho</th>
+                                            <th>Tipo</th>
+                                            <th>Status</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>backup_20250520_020000.zip</td>
+                                            <td>20/05/2025 02:00</td>
+                                            <td>256 MB</td>
+                                            <td>Automático</td>
+                                            <td><span class="status-badge completed">Completo</span></td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Baixar">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Restaurar">
+                                                    <i class="fas fa-undo"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Excluir">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>backup_20250513_020000.zip</td>
+                                            <td>13/05/2025 02:00</td>
+                                            <td>248 MB</td>
+                                            <td>Automático</td>
+                                            <td><span class="status-badge completed">Completo</span></td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Baixar">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Restaurar">
+                                                    <i class="fas fa-undo"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Excluir">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>backup_20250506_020000.zip</td>
+                                            <td>06/05/2025 02:00</td>
+                                            <td>245 MB</td>
+                                            <td>Automático</td>
+                                            <td><span class="status-badge completed">Completo</span></td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Baixar">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Restaurar">
+                                                    <i class="fas fa-undo"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Excluir">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>backup_20250501_143022.zip</td>
+                                            <td>01/05/2025 14:30</td>
+                                            <td>242 MB</td>
+                                            <td>Manual</td>
+                                            <td><span class="status-badge completed">Completo</span></td>
+                                            <td class="actions">
+                                                <button class="btn-icon" title="Baixar">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Restaurar">
+                                                    <i class="fas fa-undo"></i>
+                                                </button>
+                                                <button class="btn-icon" title="Excluir">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-section">
+                            <h3>Restauração</h3>
+                            <div class="restore-options">
+                                <div class="upload-backup">
+                                    <h4>Restaurar a partir de arquivo</h4>
+                                    <p>Faça upload de um arquivo de backup para restaurar o sistema</p>
+                                    <div class="upload-area">
+                                        <i class="fas fa-upload"></i>
+                                        <p>Arraste e solte um arquivo de backup ou clique para selecionar</p>
+                                        <input type="file" id="backupFile" class="hidden-file-input">
+                                        <button class="btn btn-outline">Selecionar Arquivo</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Cancelar</button>
+                            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="content-footer">
+            <p>&copy; 2025 Efata Prime Elevadores. Todos os direitos reservados.</p>
+            <p>Versão 2.0</p>
+        </footer>
+    </main>
+
+    <!-- Modal Adicionar Usuário -->
+    <div class="modal" id="addUserModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Novo Usuário</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="userName">Nome Completo:</label>
+                            <input type="text" id="userName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="userEmail">Email:</label>
+                            <input type="email" id="userEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="userPhone">Telefone:</label>
+                            <input type="text" id="userPhone" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="userPosition">Cargo:</label>
+                            <input type="text" id="userPosition" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="userRole">Perfil:</label>
+                            <select id="userRole" class="form-control" required>
+                                <option value="">Selecione</option>
+                                <option value="admin">Administrador</option>
+                                <option value="manager">Gerente</option>
+                                <option value="technician">Técnico</option>
+                                <option value="support">Atendimento</option>
+                                <option value="client">Cliente</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="userPassword">Senha:</label>
+                            <input type="password" id="userPassword" class="form-control" required>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="userPasswordConfirm">Confirmar Senha:</label>
+                            <input type="password" id="userPasswordConfirm" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="sendCredentials" checked>
+                            <span class="checkbox-label">Enviar credenciais por email</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="requirePasswordChange" checked>
+                            <span class="checkbox-label">Exigir alteração de senha no primeiro acesso</span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelAddUserBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveUserBtn">Adicionar Usuário</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Criar Backup -->
+    <div class="modal" id="createBackupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Criar Backup</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="createBackupForm">
+                    <div class="form-group">
+                        <label for="backupName">Nome do Backup:</label>
+                        <input type="text" id="backupName" class="form-control" value="backup_manual_20250520" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Conteúdo do Backup:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="backupDatabase" checked>
+                                <span class="checkbox-label">Banco de Dados</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="backupFiles" checked>
+                                <span class="checkbox-label">Arquivos de Mídia</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="backupSettings" checked>
+                                <span class="checkbox-label">Configurações do Sistema</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="backupLogs">
+                                <span class="checkbox-label">Logs do Sistema</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="backupDescription">Descrição (opcional):</label>
+                        <textarea id="backupDescription" class="form-control" rows="3" placeholder="Adicione uma descrição para este backup"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="backupDestination">Destino:</label>
+                        <select id="backupDestination" class="form-control">
+                            <option value="local" selected>Servidor Local</option>
+                            <option value="cloud">Nuvem (AWS S3)</option>
+                            <option value="both">Ambos (Local e Nuvem)</option>
+                            <option value="download">Download Direto</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelBackupBtn">Cancelar</button>
+                <button class="btn btn-primary" id="confirmBackupBtn">Criar Backup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/configuracoes.js"></script>
+</body>
+</html>

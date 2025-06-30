@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard administrativo da Efata Prime Elevadores">
+    <title>Dashboard - EFATA PRIME Elevadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+            </a>
+            <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h3 class="user-name">Carregando...</h3>
+                <p class="user-role">Carregando...</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="index.html" class="active">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vistorias.html">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Vistorias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordens-servico.html">
+                        <i class="fas fa-tools"></i>
+                        <span>Ordens de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fotos.html">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-left">
+                <h1>Dashboard</h1>
+                <nav class="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Dashboard</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notificações</h3>
+                            <a href="#">Marcar todas como lidas</a>
+                        </div>
+                        <ul class="notification-list">
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Nova vistoria agendada para hoje</p>
+                                        <span class="notification-time">Há 30 minutos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Ordem de serviço #123 atualizada</p>
+                                        <span class="notification-time">Há 2 horas</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Novo cliente cadastrado</p>
+                                        <span class="notification-time">Há 1 dia</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="user-name-display">Carregando...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Dashboard Overview -->
+            <div class="dashboard-overview">
+                <div class="stat-card">
+                    <div class="stat-card-icon bg-primary">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="stat-card-content">
+                        <h3>Vistorias</h3>
+                        <p class="stat-number">24</p>
+                        <p class="stat-description">5 pendentes</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon bg-warning">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="stat-card-content">
+                        <h3>Ordens de Serviço</h3>
+                        <p class="stat-number">18</p>
+                        <p class="stat-description">3 em andamento</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon bg-success">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-card-content">
+                        <h3>Clientes</h3>
+                        <p class="stat-number">42</p>
+                        <p class="stat-description">2 novos este mês</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon bg-info">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-card-content">
+                        <h3>Agendamentos</h3>
+                        <p class="stat-number">12</p>
+                        <p class="stat-description">4 para hoje</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activities & Tasks -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Atividades Recentes</h2>
+                        <a href="#" class="card-action">Ver todas</a>
+                    </div>
+                    <div class="card-body">
+                        <ul class="activity-list">
+                            <li class="activity-item">
+                                <div class="activity-icon bg-primary">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Vistoria concluída</strong> - Condomínio Jardim das Flores</p>
+                                    <span class="activity-time">Hoje, 10:30</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon bg-warning">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>OS #123 atualizada</strong> - Manutenção corretiva</p>
+                                    <span class="activity-time">Hoje, 09:15</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon bg-success">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Novo cliente cadastrado</strong> - Edifício Aurora</p>
+                                    <span class="activity-time">Ontem, 14:45</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon bg-info">
+                                    <i class="fas fa-calendar-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Agendamento criado</strong> - Manutenção preventiva</p>
+                                    <span class="activity-time">Ontem, 11:20</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon bg-danger">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <p><strong>Chamado de emergência</strong> - Elevador parado</p>
+                                    <span class="activity-time">18/05/2025, 16:30</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Tarefas Pendentes</h2>
+                        <a href="#" class="card-action">Ver todas</a>
+                    </div>
+                    <div class="card-body">
+                        <ul class="task-list">
+                            <li class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task1">
+                                    <label for="task1"></label>
+                                </div>
+                                <div class="task-content">
+                                    <p>Realizar vistoria no Condomínio Primavera</p>
+                                    <span class="task-meta">
+                                        <span class="task-priority high">Alta</span>
+                                        <span class="task-due">Hoje</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task2">
+                                    <label for="task2"></label>
+                                </div>
+                                <div class="task-content">
+                                    <p>Atualizar relatório de manutenção preventiva</p>
+                                    <span class="task-meta">
+                                        <span class="task-priority medium">Média</span>
+                                        <span class="task-due">Amanhã</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task3">
+                                    <label for="task3"></label>
+                                </div>
+                                <div class="task-content">
+                                    <p>Contatar cliente sobre orçamento pendente</p>
+                                    <span class="task-meta">
+                                        <span class="task-priority medium">Média</span>
+                                        <span class="task-due">Amanhã</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task4">
+                                    <label for="task4"></label>
+                                </div>
+                                <div class="task-content">
+                                    <p>Enviar relatório mensal para clientes</p>
+                                    <span class="task-meta">
+                                        <span class="task-priority low">Baixa</span>
+                                        <span class="task-due">20/05/2025</span>
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="task-item">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" id="task5">
+                                    <label for="task5"></label>
+                                </div>
+                                <div class="task-content">
+                                    <p>Agendar treinamento da equipe técnica</p>
+                                    <span class="task-meta">
+                                        <span class="task-priority low">Baixa</span>
+                                        <span class="task-due">25/05/2025</span>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts & Calendar -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Vistorias por Mês</h2>
+                        <div class="card-actions">
+                            <button class="btn-filter active" data-period="month">Mês</button>
+                            <button class="btn-filter" data-period="quarter">Trimestre</button>
+                            <button class="btn-filter" data-period="year">Ano</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="vistoriasChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Calendário</h2>
+                        <div class="card-actions">
+                            <button class="btn-calendar-nav" data-action="prev"><i class="fas fa-chevron-left"></i></button>
+                            <span class="calendar-current-month">Maio 2025</span>
+                            <button class="btn-calendar-nav" data-action="next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <div>Dom</div>
+                                <div>Seg</div>
+                                <div>Ter</div>
+                                <div>Qua</div>
+                                <div>Qui</div>
+                                <div>Sex</div>
+                                <div>Sáb</div>
+                            </div>
+                            <div class="calendar-days">
+                                <!-- Dias serão preenchidos via JavaScript -->
+                            </div>
+                        </div>
+                        <div class="calendar-events">
+                            <h3>Eventos de Hoje</h3>
+                            <ul class="event-list">
+                                <li class="event-item">
+                                    <span class="event-time">09:00</span>
+                                    <span class="event-title">Vistoria - Condomínio Primavera</span>
+                                </li>
+                                <li class="event-item">
+                                    <span class="event-time">11:30</span>
+                                    <span class="event-title">Manutenção Preventiva - Ed. Aurora</span>
+                                </li>
+                                <li class="event-item">
+                                    <span class="event-time">14:00</span>
+                                    <span class="event-title">Reunião com fornecedores</span>
+                                </li>
+                                <li class="event-item">
+                                    <span class="event-time">16:30</span>
+                                    <span class="event-title">Entrega de relatórios</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="content-footer">
+            <p>&copy; 2025 Efata Prime Elevadores. Todos os direitos reservados.</p>
+            <p>Versão 2.0</p>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

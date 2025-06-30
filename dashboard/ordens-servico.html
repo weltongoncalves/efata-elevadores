@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de ordens de serviço da Efata Prime Elevadores">
+    <title>Ordens de Serviço - EFATA PRIME Elevadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+            </a>
+            <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h3 class="user-name">Carregando...</h3>
+                <p class="user-role">Carregando...</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vistorias.html">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Vistorias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordens-servico.html" class="active">
+                        <i class="fas fa-tools"></i>
+                        <span>Ordens de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fotos.html">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-left">
+                <h1>Ordens de Serviço</h1>
+                <nav class="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Ordens de Serviço</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar ordens...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notificações</h3>
+                            <a href="#">Marcar todas como lidas</a>
+                        </div>
+                        <ul class="notification-list">
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Nova vistoria agendada para hoje</p>
+                                        <span class="notification-time">Há 30 minutos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Ordem de serviço #123 atualizada</p>
+                                        <span class="notification-time">Há 2 horas</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Novo cliente cadastrado</p>
+                                        <span class="notification-time">Há 1 dia</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="user-name-display">Carregando...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Ordens de Serviço Header -->
+            <div class="content-header-actions">
+                <h2>Gerenciamento de Ordens de Serviço</h2>
+                <button class="btn btn-primary" id="newWorkOrderBtn">
+                    <i class="fas fa-plus"></i> Nova Ordem de Serviço
+                </button>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="statusFilter">Status:</label>
+                    <select id="statusFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="open">Aberta</option>
+                        <option value="in_progress">Em Andamento</option>
+                        <option value="completed">Concluída</option>
+                        <option value="cancelled">Cancelada</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="priorityFilter">Prioridade:</label>
+                    <select id="priorityFilter" class="form-control">
+                        <option value="">Todas</option>
+                        <option value="low">Baixa</option>
+                        <option value="medium">Média</option>
+                        <option value="high">Alta</option>
+                        <option value="urgent">Urgente</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="dateFilter">Período:</label>
+                    <select id="dateFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="today">Hoje</option>
+                        <option value="week">Esta Semana</option>
+                        <option value="month">Este Mês</option>
+                        <option value="custom">Personalizado</option>
+                    </select>
+                </div>
+                <div class="filter-group custom-date-filter" style="display: none;">
+                    <label for="startDate">De:</label>
+                    <input type="date" id="startDate" class="form-control">
+                </div>
+                <div class="filter-group custom-date-filter" style="display: none;">
+                    <label for="endDate">Até:</label>
+                    <input type="date" id="endDate" class="form-control">
+                </div>
+                <div class="filter-group">
+                    <label for="technicianFilter">Técnico:</label>
+                    <select id="technicianFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="1">Carlos Silva</option>
+                        <option value="2">Roberto Almeida</option>
+                        <option value="3">Ana Oliveira</option>
+                        <option value="4">Marcos Santos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="btn btn-secondary" id="applyFiltersBtn">
+                        <i class="fas fa-filter"></i> Aplicar Filtros
+                    </button>
+                    <button class="btn btn-outline" id="clearFiltersBtn">
+                        <i class="fas fa-times"></i> Limpar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tabela de Ordens de Serviço -->
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>OS #</th>
+                            <th>Cliente</th>
+                            <th>Elevador</th>
+                            <th>Descrição</th>
+                            <th>Data Agendada</th>
+                            <th>Técnico</th>
+                            <th>Prioridade</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#2001</td>
+                            <td>Condomínio Jardim das Flores</td>
+                            <td>Bloco A - Social 1</td>
+                            <td>Manutenção preventiva</td>
+                            <td>18/05/2025</td>
+                            <td>Carlos Silva</td>
+                            <td><span class="priority-badge medium">Média</span></td>
+                            <td><span class="status-badge completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Gerar Relatório">
+                                    <i class="fas fa-file-pdf"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2002</td>
+                            <td>Edifício Aurora</td>
+                            <td>Torre Principal - Serviço</td>
+                            <td>Reparo no sistema de portas</td>
+                            <td>17/05/2025</td>
+                            <td>Roberto Almeida</td>
+                            <td><span class="priority-badge high">Alta</span></td>
+                            <td><span class="status-badge completed">Concluída</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Gerar Relatório">
+                                    <i class="fas fa-file-pdf"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2003</td>
+                            <td>Condomínio Primavera</td>
+                            <td>Torre 2 - Social 2</td>
+                            <td>Substituição de cabos</td>
+                            <td>20/05/2025</td>
+                            <td>Carlos Silva</td>
+                            <td><span class="priority-badge high">Alta</span></td>
+                            <td><span class="status-badge open">Aberta</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Iniciar">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2004</td>
+                            <td>Edifício Horizonte</td>
+                            <td>Principal</td>
+                            <td>Ajuste no sistema de nivelamento</td>
+                            <td>19/05/2025</td>
+                            <td>Ana Oliveira</td>
+                            <td><span class="priority-badge medium">Média</span></td>
+                            <td><span class="status-badge in-progress">Em Andamento</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Concluir">
+                                    <i class="fas fa-check-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2005</td>
+                            <td>Hospital Santa Clara</td>
+                            <td>Ala Leste - Macas</td>
+                            <td>Manutenção emergencial - Elevador parado</td>
+                            <td>20/05/2025</td>
+                            <td>Roberto Almeida</td>
+                            <td><span class="priority-badge urgent">Urgente</span></td>
+                            <td><span class="status-badge open">Aberta</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Iniciar">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2006</td>
+                            <td>Condomínio Jardim das Flores</td>
+                            <td>Bloco B - Social 1</td>
+                            <td>Manutenção preventiva</td>
+                            <td>21/05/2025</td>
+                            <td>Carlos Silva</td>
+                            <td><span class="priority-badge low">Baixa</span></td>
+                            <td><span class="status-badge open">Aberta</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Iniciar">
+                                    <i class="fas fa-play-circle"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#2007</td>
+                            <td>Edifício Aurora</td>
+                            <td>Torre Principal - Social</td>
+                            <td>Reparo no painel de controle</td>
+                            <td>16/05/2025</td>
+                            <td>Ana Oliveira</td>
+                            <td><span class="priority-badge medium">Média</span></td>
+                            <td><span class="status-badge cancelled">Cancelada</span></td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ver Detalhes">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn-icon" title="Reabrir">
+                                    <i class="fas fa-redo"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginação -->
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-ellipsis">...</span>
+                <button class="pagination-btn">10</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <footer class="content-footer">
+            <p>&copy; 2025 Efata Prime Elevadores. Todos os direitos reservados.</p>
+            <p>Versão 2.0</p>
+        </footer>
+    </main>
+
+    <!-- Modal Nova Ordem de Serviço -->
+    <div class="modal" id="newWorkOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nova Ordem de Serviço</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="newWorkOrderForm">
+                    <div class="form-group">
+                        <label for="clientSelect">Cliente:</label>
+                        <select id="clientSelect" class="form-control" required>
+                            <option value="">Selecione um cliente</option>
+                            <option value="1">Condomínio Jardim das Flores</option>
+                            <option value="2">Edifício Aurora</option>
+                            <option value="3">Condomínio Primavera</option>
+                            <option value="4">Edifício Horizonte</option>
+                            <option value="5">Hospital Santa Clara</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="buildingSelect">Edifício:</label>
+                        <select id="buildingSelect" class="form-control" required disabled>
+                            <option value="">Selecione um edifício</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="elevatorSelect">Elevador:</label>
+                        <select id="elevatorSelect" class="form-control" required disabled>
+                            <option value="">Selecione um elevador</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceType">Tipo de Serviço:</label>
+                        <select id="serviceType" class="form-control" required>
+                            <option value="">Selecione o tipo de serviço</option>
+                            <option value="preventive">Manutenção Preventiva</option>
+                            <option value="corrective">Manutenção Corretiva</option>
+                            <option value="emergency">Atendimento Emergencial</option>
+                            <option value="installation">Instalação</option>
+                            <option value="modernization">Modernização</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descrição:</label>
+                        <textarea id="description" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority">Prioridade:</label>
+                        <select id="priority" class="form-control" required>
+                            <option value="low">Baixa</option>
+                            <option value="medium" selected>Média</option>
+                            <option value="high">Alta</option>
+                            <option value="urgent">Urgente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduledDate">Data Agendada:</label>
+                        <input type="date" id="scheduledDate" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="technicianSelect">Técnico Responsável:</label>
+                        <select id="technicianSelect" class="form-control" required>
+                            <option value="">Selecione um técnico</option>
+                            <option value="1">Carlos Silva</option>
+                            <option value="2">Roberto Almeida</option>
+                            <option value="3">Ana Oliveira</option>
+                            <option value="4">Marcos Santos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="additionalNotes">Observações Adicionais:</label>
+                        <textarea id="additionalNotes" class="form-control" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelWorkOrderBtn">Cancelar</button>
+                <button class="btn btn-primary" id="saveWorkOrderBtn">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/ordens-servico.js"></script>
+</body>
+</html>

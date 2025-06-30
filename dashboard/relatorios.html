@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de relatórios da Efata Prime Elevadores">
+    <title>Relatórios - EFATA PRIME Elevadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+            </a>
+            <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h3 class="user-name">Carregando...</h3>
+                <p class="user-role">Carregando...</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vistorias.html">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Vistorias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordens-servico.html">
+                        <i class="fas fa-tools"></i>
+                        <span>Ordens de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fotos.html">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html" class="active">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-left">
+                <h1>Relatórios</h1>
+                <nav class="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Relatórios</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar relatórios...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notificações</h3>
+                            <a href="#">Marcar todas como lidas</a>
+                        </div>
+                        <ul class="notification-list">
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Nova vistoria agendada para hoje</p>
+                                        <span class="notification-time">Há 30 minutos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Ordem de serviço #123 atualizada</p>
+                                        <span class="notification-time">Há 2 horas</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Novo cliente cadastrado</p>
+                                        <span class="notification-time">Há 1 dia</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="user-name-display">Carregando...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Relatórios Header -->
+            <div class="content-header-actions">
+                <h2>Geração de Relatórios</h2>
+                <button class="btn btn-primary" id="exportReportBtn">
+                    <i class="fas fa-file-export"></i> Exportar Relatório
+                </button>
+            </div>
+
+            <!-- Categorias de Relatórios -->
+            <div class="report-categories">
+                <div class="report-category active" data-category="vistorias">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>Vistorias</span>
+                </div>
+                <div class="report-category" data-category="ordens-servico">
+                    <i class="fas fa-tools"></i>
+                    <span>Ordens de Serviço</span>
+                </div>
+                <div class="report-category" data-category="clientes">
+                    <i class="fas fa-users"></i>
+                    <span>Clientes</span>
+                </div>
+                <div class="report-category" data-category="elevadores">
+                    <i class="fas fa-building"></i>
+                    <span>Elevadores</span>
+                </div>
+                <div class="report-category" data-category="financeiro">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Financeiro</span>
+                </div>
+                <div class="report-category" data-category="desempenho">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Desempenho</span>
+                </div>
+            </div>
+
+            <!-- Filtros de Relatórios -->
+            <div class="report-filters">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="dateRangeFilter">Período:</label>
+                        <select id="dateRangeFilter" class="form-control">
+                            <option value="today">Hoje</option>
+                            <option value="yesterday">Ontem</option>
+                            <option value="week">Esta Semana</option>
+                            <option value="last_week">Semana Passada</option>
+                            <option value="month" selected>Este Mês</option>
+                            <option value="last_month">Mês Passado</option>
+                            <option value="quarter">Este Trimestre</option>
+                            <option value="year">Este Ano</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                    <div class="filter-group custom-date-filter" style="display: none;">
+                        <label for="startDate">De:</label>
+                        <input type="date" id="startDate" class="form-control">
+                    </div>
+                    <div class="filter-group custom-date-filter" style="display: none;">
+                        <label for="endDate">Até:</label>
+                        <input type="date" id="endDate" class="form-control">
+                    </div>
+                    <div class="filter-group">
+                        <label for="clientFilter">Cliente:</label>
+                        <select id="clientFilter" class="form-control">
+                            <option value="">Todos</option>
+                            <option value="1">Condomínio Jardim das Flores</option>
+                            <option value="2">Edifício Aurora</option>
+                            <option value="3">Condomínio Primavera</option>
+                            <option value="4">Edifício Horizonte</option>
+                            <option value="5">Hospital Santa Clara</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="technicianFilter">Técnico:</label>
+                        <select id="technicianFilter" class="form-control">
+                            <option value="">Todos</option>
+                            <option value="1">Carlos Silva</option>
+                            <option value="2">Roberto Almeida</option>
+                            <option value="3">Ana Oliveira</option>
+                            <option value="4">Marcos Santos</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="statusFilter">Status:</label>
+                        <select id="statusFilter" class="form-control">
+                            <option value="">Todos</option>
+                            <option value="pending">Pendente</option>
+                            <option value="in_progress">Em Andamento</option>
+                            <option value="completed">Concluída</option>
+                            <option value="cancelled">Cancelada</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <button class="btn btn-secondary" id="applyFiltersBtn">
+                            <i class="fas fa-filter"></i> Aplicar Filtros
+                        </button>
+                        <button class="btn btn-outline" id="clearFiltersBtn">
+                            <i class="fas fa-times"></i> Limpar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo do Relatório -->
+            <div class="report-content">
+                <!-- Vistorias (Ativo por padrão) -->
+                <div class="report-section active" id="vistorias-report">
+                    <div class="report-header">
+                        <h3>Relatório de Vistorias</h3>
+                        <p>Período: <span id="report-period">Maio 2025</span></p>
+                    </div>
+                    
+                    <!-- Gráficos e Estatísticas -->
+                    <div class="report-charts">
+                        <div class="chart-container">
+                            <h4>Vistorias por Status</h4>
+                            <div class="chart-placeholder" id="vistorias-status-chart">
+                                <div class="chart-donut">
+                                    <div class="donut-segment" style="--percentage: 60; --fill: var(--success)"></div>
+                                    <div class="donut-segment" style="--percentage: 25; --fill: var(--warning)"></div>
+                                    <div class="donut-segment" style="--percentage: 10; --fill: var(--primary)"></div>
+                                    <div class="donut-segment" style="--percentage: 5; --fill: var(--danger)"></div>
+                                    <div class="donut-label">
+                                        <span class="donut-number">48</span>
+                                        <span class="donut-text">Total</span>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--success)"></span>
+                                        <span class="legend-label">Concluídas (29)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--warning)"></span>
+                                        <span class="legend-label">Em Andamento (12)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--primary)"></span>
+                                        <span class="legend-label">Pendentes (5)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--danger)"></span>
+                                        <span class="legend-label">Canceladas (2)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Vistorias por Técnico</h4>
+                            <div class="chart-placeholder" id="vistorias-tecnicos-chart">
+                                <div class="chart-bar">
+                                    <div class="bar-container">
+                                        <div class="bar-label">Carlos Silva</div>
+                                        <div class="bar-value" style="width: 80%;">18</div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar-label">Roberto Almeida</div>
+                                        <div class="bar-value" style="width: 60%;">14</div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar-label">Ana Oliveira</div>
+                                        <div class="bar-value" style="width: 50%;">12</div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar-label">Marcos Santos</div>
+                                        <div class="bar-value" style="width: 20%;">4</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Total de Vistorias</h4>
+                                <p class="stat-value">48</p>
+                                <p class="stat-change positive">+12% em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Taxa de Conclusão</h4>
+                                <p class="stat-value">85%</p>
+                                <p class="stat-change positive">+5% em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Tempo Médio</h4>
+                                <p class="stat-value">1h 45min</p>
+                                <p class="stat-change negative">+15min em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Problemas Identificados</h4>
+                                <p class="stat-value">23</p>
+                                <p class="stat-change negative">+8 em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabela de Dados -->
+                    <div class="report-table">
+                        <h4>Detalhamento de Vistorias</h4>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Cliente</th>
+                                        <th>Elevador</th>
+                                        <th>Data</th>
+                                        <th>Técnico</th>
+                                        <th>Status</th>
+                                        <th>Observações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1001</td>
+                                        <td>Condomínio Jardim das Flores</td>
+                                        <td>Bloco A - Social 1</td>
+                                        <td>18/05/2025</td>
+                                        <td>Carlos Silva</td>
+                                        <td><span class="status-badge completed">Concluída</span></td>
+                                        <td>Manutenção preventiva realizada com sucesso</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1002</td>
+                                        <td>Edifício Aurora</td>
+                                        <td>Torre Principal - Serviço</td>
+                                        <td>17/05/2025</td>
+                                        <td>Roberto Almeida</td>
+                                        <td><span class="status-badge completed">Concluída</span></td>
+                                        <td>Ajustes no sistema de portas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1003</td>
+                                        <td>Condomínio Primavera</td>
+                                        <td>Torre 2 - Social 2</td>
+                                        <td>19/05/2025</td>
+                                        <td>Carlos Silva</td>
+                                        <td><span class="status-badge pending">Pendente</span></td>
+                                        <td>Agendada para verificação de ruídos</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1004</td>
+                                        <td>Edifício Horizonte</td>
+                                        <td>Principal</td>
+                                        <td>19/05/2025</td>
+                                        <td>Ana Oliveira</td>
+                                        <td><span class="status-badge in-progress">Em Andamento</span></td>
+                                        <td>Verificação do sistema de nivelamento</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1005</td>
+                                        <td>Hospital Santa Clara</td>
+                                        <td>Ala Leste - Macas</td>
+                                        <td>20/05/2025</td>
+                                        <td>Roberto Almeida</td>
+                                        <td><span class="status-badge pending">Pendente</span></td>
+                                        <td>Vistoria de rotina</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ordens de Serviço (Inicialmente oculto) -->
+                <div class="report-section" id="ordens-servico-report" style="display: none;">
+                    <div class="report-header">
+                        <h3>Relatório de Ordens de Serviço</h3>
+                        <p>Período: <span id="os-report-period">Maio 2025</span></p>
+                    </div>
+                    
+                    <!-- Gráficos e Estatísticas -->
+                    <div class="report-charts">
+                        <div class="chart-container">
+                            <h4>Ordens de Serviço por Status</h4>
+                            <div class="chart-placeholder" id="os-status-chart">
+                                <div class="chart-donut">
+                                    <div class="donut-segment" style="--percentage: 55; --fill: var(--success)"></div>
+                                    <div class="donut-segment" style="--percentage: 20; --fill: var(--warning)"></div>
+                                    <div class="donut-segment" style="--percentage: 20; --fill: var(--primary)"></div>
+                                    <div class="donut-segment" style="--percentage: 5; --fill: var(--danger)"></div>
+                                    <div class="donut-label">
+                                        <span class="donut-number">62</span>
+                                        <span class="donut-text">Total</span>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--success)"></span>
+                                        <span class="legend-label">Concluídas (34)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--warning)"></span>
+                                        <span class="legend-label">Em Andamento (12)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--primary)"></span>
+                                        <span class="legend-label">Abertas (13)</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color" style="background-color: var(--danger)"></span>
+                                        <span class="legend-label">Canceladas (3)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h4>Ordens de Serviço por Tipo</h4>
+                            <div class="chart-placeholder" id="os-tipo-chart">
+                                <div class="chart-bar">
+                                    <div class="bar-container">
+                                        <div class="bar-label">Preventiva</div>
+                                        <div class="bar-value" style="width: 70%;">43</div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar-label">Corretiva</div>
+                                        <div class="bar-value" style="width: 25%;">15</div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar-label">Emergencial</div>
+                                        <div class="bar-value" style="width: 5%;">3</div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar-label">Modernização</div>
+                                        <div class="bar-value" style="width: 2%;">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Total de OS</h4>
+                                <p class="stat-value">62</p>
+                                <p class="stat-change positive">+8% em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Taxa de Conclusão</h4>
+                                <p class="stat-value">78%</p>
+                                <p class="stat-change positive">+3% em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Tempo Médio</h4>
+                                <p class="stat-value">2h 30min</p>
+                                <p class="stat-change positive">-15min em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Emergenciais</h4>
+                                <p class="stat-value">3</p>
+                                <p class="stat-change negative">+1 em relação ao mês anterior</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabela de Dados -->
+                    <div class="report-table">
+                        <h4>Detalhamento de Ordens de Serviço</h4>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>OS #</th>
+                                        <th>Cliente</th>
+                                        <th>Elevador</th>
+                                        <th>Tipo</th>
+                                        <th>Data</th>
+                                        <th>Técnico</th>
+                                        <th>Status</th>
+                                        <th>Tempo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#2001</td>
+                                        <td>Condomínio Jardim das Flores</td>
+                                        <td>Bloco A - Social 1</td>
+                                        <td>Preventiva</td>
+                                        <td>18/05/2025</td>
+                                        <td>Carlos Silva</td>
+                                        <td><span class="status-badge completed">Concluída</span></td>
+                                        <td>2h 15min</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2002</td>
+                                        <td>Edifício Aurora</td>
+                                        <td>Torre Principal - Serviço</td>
+                                        <td>Corretiva</td>
+                                        <td>17/05/2025</td>
+                                        <td>Roberto Almeida</td>
+                                        <td><span class="status-badge completed">Concluída</span></td>
+                                        <td>3h 45min</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2003</td>
+                                        <td>Condomínio Primavera</td>
+                                        <td>Torre 2 - Social 2</td>
+                                        <td>Corretiva</td>
+                                        <td>20/05/2025</td>
+                                        <td>Carlos Silva</td>
+                                        <td><span class="status-badge open">Aberta</span></td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2004</td>
+                                        <td>Edifício Horizonte</td>
+                                        <td>Principal</td>
+                                        <td>Preventiva</td>
+                                        <td>19/05/2025</td>
+                                        <td>Ana Oliveira</td>
+                                        <td><span class="status-badge in-progress">Em Andamento</span></td>
+                                        <td>1h 30min</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#2005</td>
+                                        <td>Hospital Santa Clara</td>
+                                        <td>Ala Leste - Macas</td>
+                                        <td>Emergencial</td>
+                                        <td>20/05/2025</td>
+                                        <td>Roberto Almeida</td>
+                                        <td><span class="status-badge open">Aberta</span></td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Outros relatórios (inicialmente ocultos) -->
+                <div class="report-section" id="clientes-report" style="display: none;">
+                    <div class="report-placeholder">
+                        <i class="fas fa-users"></i>
+                        <h3>Relatório de Clientes</h3>
+                        <p>Selecione os filtros desejados e clique em "Aplicar Filtros" para gerar o relatório.</p>
+                    </div>
+                </div>
+                
+                <div class="report-section" id="elevadores-report" style="display: none;">
+                    <div class="report-placeholder">
+                        <i class="fas fa-building"></i>
+                        <h3>Relatório de Elevadores</h3>
+                        <p>Selecione os filtros desejados e clique em "Aplicar Filtros" para gerar o relatório.</p>
+                    </div>
+                </div>
+                
+                <div class="report-section" id="financeiro-report" style="display: none;">
+                    <div class="report-placeholder">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>Relatório Financeiro</h3>
+                        <p>Selecione os filtros desejados e clique em "Aplicar Filtros" para gerar o relatório.</p>
+                    </div>
+                </div>
+                
+                <div class="report-section" id="desempenho-report" style="display: none;">
+                    <div class="report-placeholder">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Relatório de Desempenho</h3>
+                        <p>Selecione os filtros desejados e clique em "Aplicar Filtros" para gerar o relatório.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="content-footer">
+            <p>&copy; 2025 Efata Prime Elevadores. Todos os direitos reservados.</p>
+            <p>Versão 2.0</p>
+        </footer>
+    </main>
+
+    <!-- Modal Exportar Relatório -->
+    <div class="modal" id="exportReportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Exportar Relatório</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="exportReportForm">
+                    <div class="form-group">
+                        <label for="reportTitle">Título do Relatório:</label>
+                        <input type="text" id="reportTitle" class="form-control" value="Relatório de Vistorias - Maio 2025" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportFormat">Formato:</label>
+                        <select id="reportFormat" class="form-control" required>
+                            <option value="pdf">PDF</option>
+                            <option value="excel">Excel</option>
+                            <option value="csv">CSV</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Conteúdo:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="includeCharts" checked>
+                                <span class="checkbox-label">Incluir Gráficos</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="includeStats" checked>
+                                <span class="checkbox-label">Incluir Estatísticas</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="includeTable" checked>
+                                <span class="checkbox-label">Incluir Tabela de Dados</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportNotes">Observações:</label>
+                        <textarea id="reportNotes" class="form-control" rows="3" placeholder="Adicione observações ou notas para o relatório (opcional)"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelExportBtn">Cancelar</button>
+                <button class="btn btn-primary" id="confirmExportBtn">Exportar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/relatorios.js"></script>
+</body>
+</html>

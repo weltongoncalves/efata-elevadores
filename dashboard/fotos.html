@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de gerenciamento de fotos da Efata Prime Elevadores">
+    <title>Fotos - EFATA PRIME Elevadores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">
+                <img src="../assets/images/logo.png" alt="Efata Prime Elevadores">
+            </a>
+            <button class="sidebar-toggle" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-user">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h3 class="user-name">Carregando...</h3>
+                <p class="user-role">Carregando...</p>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vistorias.html">
+                        <i class="fas fa-clipboard-check"></i>
+                        <span>Vistorias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ordens-servico.html">
+                        <i class="fas fa-tools"></i>
+                        <span>Ordens de Serviço</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fotos.html" class="active">
+                        <i class="fas fa-images"></i>
+                        <span>Fotos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientes.html">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="relatorios.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="configuracoes.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="content-header">
+            <div class="header-left">
+                <h1>Fotos</h1>
+                <nav class="breadcrumb">
+                    <ol>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Fotos</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar fotos...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="notification-dropdown">
+                        <div class="notification-header">
+                            <h3>Notificações</h3>
+                            <a href="#">Marcar todas como lidas</a>
+                        </div>
+                        <ul class="notification-list">
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-primary">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Nova vistoria agendada para hoje</p>
+                                        <span class="notification-time">Há 30 minutos</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-warning">
+                                        <i class="fas fa-tools"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Ordem de serviço #123 atualizada</p>
+                                        <span class="notification-time">Há 2 horas</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <div class="notification-icon bg-success">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p>Novo cliente cadastrado</p>
+                                        <span class="notification-time">Há 1 dia</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="notification-footer">
+                            <a href="#">Ver todas as notificações</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-dropdown">
+                    <button class="user-dropdown-btn">
+                        <i class="fas fa-user-circle"></i>
+                        <span class="user-name-display">Carregando...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> Meu Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#" id="logoutBtnDropdown"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <!-- Fotos Header -->
+            <div class="content-header-actions">
+                <h2>Gerenciamento de Fotos</h2>
+                <button class="btn btn-primary" id="uploadPhotoBtn">
+                    <i class="fas fa-upload"></i> Upload de Fotos
+                </button>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="categoryFilter">Categoria:</label>
+                    <select id="categoryFilter" class="form-control">
+                        <option value="">Todas</option>
+                        <option value="inspection">Vistorias</option>
+                        <option value="work_order">Ordens de Serviço</option>
+                        <option value="elevator">Elevadores</option>
+                        <option value="other">Outras</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="dateFilter">Período:</label>
+                    <select id="dateFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="today">Hoje</option>
+                        <option value="week">Esta Semana</option>
+                        <option value="month">Este Mês</option>
+                        <option value="custom">Personalizado</option>
+                    </select>
+                </div>
+                <div class="filter-group custom-date-filter" style="display: none;">
+                    <label for="startDate">De:</label>
+                    <input type="date" id="startDate" class="form-control">
+                </div>
+                <div class="filter-group custom-date-filter" style="display: none;">
+                    <label for="endDate">Até:</label>
+                    <input type="date" id="endDate" class="form-control">
+                </div>
+                <div class="filter-group">
+                    <label for="clientFilter">Cliente:</label>
+                    <select id="clientFilter" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="1">Condomínio Jardim das Flores</option>
+                        <option value="2">Edifício Aurora</option>
+                        <option value="3">Condomínio Primavera</option>
+                        <option value="4">Edifício Horizonte</option>
+                        <option value="5">Hospital Santa Clara</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="btn btn-secondary" id="applyFiltersBtn">
+                        <i class="fas fa-filter"></i> Aplicar Filtros
+                    </button>
+                    <button class="btn btn-outline" id="clearFiltersBtn">
+                        <i class="fas fa-times"></i> Limpar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Visualização em Grade -->
+            <div class="view-toggle">
+                <button class="btn-view active" data-view="grid"><i class="fas fa-th"></i> Grade</button>
+                <button class="btn-view" data-view="list"><i class="fas fa-list"></i> Lista</button>
+            </div>
+
+            <!-- Galeria de Fotos (Grade) -->
+            <div class="photo-gallery grid-view">
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Elevador+1" alt="Elevador Social 1">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Elevador Social 1</h3>
+                        <p>Condomínio Jardim das Flores</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">18/05/2025</span>
+                            <span class="photo-category">Vistoria #1001</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Painel+de+Controle" alt="Painel de Controle">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Painel de Controle</h3>
+                        <p>Edifício Aurora</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">17/05/2025</span>
+                            <span class="photo-category">OS #2002</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Sistema+de+Portas" alt="Sistema de Portas">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Sistema de Portas</h3>
+                        <p>Edifício Aurora</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">17/05/2025</span>
+                            <span class="photo-category">OS #2002</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Casa+de+Máquinas" alt="Casa de Máquinas">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Casa de Máquinas</h3>
+                        <p>Condomínio Primavera</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">15/05/2025</span>
+                            <span class="photo-category">Vistoria #998</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Cabine+Interna" alt="Cabine Interna">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Cabine Interna</h3>
+                        <p>Edifício Horizonte</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">19/05/2025</span>
+                            <span class="photo-category">OS #2004</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Sistema+de+Nivelamento" alt="Sistema de Nivelamento">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Sistema de Nivelamento</h3>
+                        <p>Edifício Horizonte</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">19/05/2025</span>
+                            <span class="photo-category">OS #2004</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Elevador+de+Macas" alt="Elevador de Macas">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Elevador de Macas</h3>
+                        <p>Hospital Santa Clara</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">14/05/2025</span>
+                            <span class="photo-category">Vistoria #995</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="photo-item">
+                    <div class="photo-container">
+                        <img src="https://via.placeholder.com/300x200/D4AF37/000000?text=Poço+do+Elevador" alt="Poço do Elevador">
+                        <div class="photo-overlay">
+                            <div class="photo-actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-info">
+                        <h3>Poço do Elevador</h3>
+                        <p>Condomínio Jardim das Flores</p>
+                        <p class="photo-meta">
+                            <span class="photo-date">18/05/2025</span>
+                            <span class="photo-category">Vistoria #1001</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualização em Lista (inicialmente oculta) -->
+            <div class="photo-list list-view" style="display: none;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Miniatura</th>
+                            <th>Nome</th>
+                            <th>Cliente</th>
+                            <th>Categoria</th>
+                            <th>Data</th>
+                            <th>Enviado por</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/80x60/D4AF37/000000?text=Elevador+1" alt="Elevador Social 1" class="thumbnail">
+                            </td>
+                            <td>Elevador Social 1</td>
+                            <td>Condomínio Jardim das Flores</td>
+                            <td>Vistoria #1001</td>
+                            <td>18/05/2025</td>
+                            <td>Carlos Silva</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/80x60/D4AF37/000000?text=Painel+de+Controle" alt="Painel de Controle" class="thumbnail">
+                            </td>
+                            <td>Painel de Controle</td>
+                            <td>Edifício Aurora</td>
+                            <td>OS #2002</td>
+                            <td>17/05/2025</td>
+                            <td>Roberto Almeida</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/80x60/D4AF37/000000?text=Sistema+de+Portas" alt="Sistema de Portas" class="thumbnail">
+                            </td>
+                            <td>Sistema de Portas</td>
+                            <td>Edifício Aurora</td>
+                            <td>OS #2002</td>
+                            <td>17/05/2025</td>
+                            <td>Roberto Almeida</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/80x60/D4AF37/000000?text=Casa+de+Máquinas" alt="Casa de Máquinas" class="thumbnail">
+                            </td>
+                            <td>Casa de Máquinas</td>
+                            <td>Condomínio Primavera</td>
+                            <td>Vistoria #998</td>
+                            <td>15/05/2025</td>
+                            <td>Ana Oliveira</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="https://via.placeholder.com/80x60/D4AF37/000000?text=Cabine+Interna" alt="Cabine Interna" class="thumbnail">
+                            </td>
+                            <td>Cabine Interna</td>
+                            <td>Edifício Horizonte</td>
+                            <td>OS #2004</td>
+                            <td>19/05/2025</td>
+                            <td>Ana Oliveira</td>
+                            <td class="actions">
+                                <button class="btn-icon" title="Ampliar">
+                                    <i class="fas fa-search-plus"></i>
+                                </button>
+                                <button class="btn-icon" title="Editar">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon" title="Baixar">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                                <button class="btn-icon" title="Excluir">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginação -->
+            <div class="pagination">
+                <button class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-ellipsis">...</span>
+                <button class="pagination-btn">10</button>
+                <button class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <footer class="content-footer">
+            <p>&copy; 2025 Efata Prime Elevadores. Todos os direitos reservados.</p>
+            <p>Versão 2.0</p>
+        </footer>
+    </main>
+
+    <!-- Modal Upload de Fotos -->
+    <div class="modal" id="uploadPhotoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload de Fotos</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="uploadPhotoForm">
+                    <div class="form-group">
+                        <label for="photoCategory">Categoria:</label>
+                        <select id="photoCategory" class="form-control" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="inspection">Vistoria</option>
+                            <option value="work_order">Ordem de Serviço</option>
+                            <option value="elevator">Elevador (Geral)</option>
+                            <option value="other">Outra</option>
+                        </select>
+                    </div>
+                    <div class="form-group category-related inspection-related" style="display: none;">
+                        <label for="inspectionSelect">Vistoria:</label>
+                        <select id="inspectionSelect" class="form-control">
+                            <option value="">Selecione uma vistoria</option>
+                            <option value="1001">Vistoria #1001 - Condomínio Jardim das Flores</option>
+                            <option value="1002">Vistoria #1002 - Edifício Aurora</option>
+                            <option value="1003">Vistoria #1003 - Condomínio Primavera</option>
+                            <option value="1004">Vistoria #1004 - Edifício Horizonte</option>
+                            <option value="1005">Vistoria #1005 - Hospital Santa Clara</option>
+                        </select>
+                    </div>
+                    <div class="form-group category-related work-order-related" style="display: none;">
+                        <label for="workOrderSelect">Ordem de Serviço:</label>
+                        <select id="workOrderSelect" class="form-control">
+                            <option value="">Selecione uma ordem de serviço</option>
+                            <option value="2001">OS #2001 - Condomínio Jardim das Flores</option>
+                            <option value="2002">OS #2002 - Edifício Aurora</option>
+                            <option value="2003">OS #2003 - Condomínio Primavera</option>
+                            <option value="2004">OS #2004 - Edifício Horizonte</option>
+                            <option value="2005">OS #2005 - Hospital Santa Clara</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientSelect">Cliente:</label>
+                        <select id="clientSelect" class="form-control" required>
+                            <option value="">Selecione um cliente</option>
+                            <option value="1">Condomínio Jardim das Flores</option>
+                            <option value="2">Edifício Aurora</option>
+                            <option value="3">Condomínio Primavera</option>
+                            <option value="4">Edifício Horizonte</option>
+                            <option value="5">Hospital Santa Clara</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="buildingSelect">Edifício:</label>
+                        <select id="buildingSelect" class="form-control" required disabled>
+                            <option value="">Selecione um edifício</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="elevatorSelect">Elevador:</label>
+                        <select id="elevatorSelect" class="form-control" required disabled>
+                            <option value="">Selecione um elevador</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="photoTitle">Título:</label>
+                        <input type="text" id="photoTitle" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="photoDescription">Descrição:</label>
+                        <textarea id="photoDescription" class="form-control" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="photoFiles">Selecionar Fotos:</label>
+                        <div class="file-upload-container">
+                            <input type="file" id="photoFiles" class="file-upload-input" multiple accept="image/*" required>
+                            <label for="photoFiles" class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Arraste as fotos ou clique para selecionar</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="photo-preview-container" style="display: none;">
+                        <h3>Pré-visualização:</h3>
+                        <div class="photo-preview-list"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelUploadBtn">Cancelar</button>
+                <button class="btn btn-primary" id="uploadBtn">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Visualização de Foto -->
+    <div class="modal photo-view-modal" id="photoViewModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="photoViewTitle">Título da Foto</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="photo-view-container">
+                    <img id="photoViewImage" src="" alt="Foto em tamanho grande">
+                </div>
+                <div class="photo-view-info">
+                    <div class="photo-view-details">
+                        <p><strong>Cliente:</strong> <span id="photoViewClient"></span></p>
+                        <p><strong>Edifício:</strong> <span id="photoViewBuilding"></span></p>
+                        <p><strong>Elevador:</strong> <span id="photoViewElevator"></span></p>
+                        <p><strong>Categoria:</strong> <span id="photoViewCategory"></span></p>
+                        <p><strong>Data:</strong> <span id="photoViewDate"></span></p>
+                        <p><strong>Enviado por:</strong> <span id="photoViewUploader"></span></p>
+                    </div>
+                    <div class="photo-view-description">
+                        <h3>Descrição:</h3>
+                        <p id="photoViewDescription"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="prevPhotoBtn">
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <div class="photo-actions">
+                    <button class="btn btn-secondary" id="downloadPhotoBtn">
+                        <i class="fas fa-download"></i> Baixar
+                    </button>
+                    <button class="btn btn-primary" id="editPhotoBtn">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                </div>
+                <button class="btn btn-outline" id="nextPhotoBtn">
+                    Próxima <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/fotos.js"></script>
+</body>
+</html>
